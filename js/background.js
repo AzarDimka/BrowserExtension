@@ -8,8 +8,17 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+const key = 'myKey';
+
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "my-custom-button") {
     chrome.tabs.sendMessage(tab.id, {text: info.selectionText})
+
+    chrome.storage.local.get(['savedTexts'], (result) => {
+      let items = result.savedTexts || [];
+      items.push({ text: info.selectionText, url: info.pageUrl, date: new Date().toISOString()});
+      chrome.storage.local.set({ savedTexts: items});
+      console.log('Stored name: ', items)
+    })
   }
 });
