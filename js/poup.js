@@ -20,3 +20,10 @@ document.addEventListener('DOMContentLoaded',function() {
         });
     })
 });
+
+document.addEventListener('DOMContentLoaded',function() {
+    let button = document.getElementById('open-settings');
+    button.addEventListener('click', function() {
+        chrome.runtime.openOptionsPage();
+    });
+});

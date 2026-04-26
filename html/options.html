@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <script src="../js/options.js"></script>
+</head>
+<body>
+    
+    <p>Формат выгрузки</p>
+    <select id="export-format">
+        <option value="1">Markdown (.md)</option>
+        <option value="2">Текстовый документ (.txt)</option>
+        <option value="3">JSON</option>
+    </select>
+    <br>
+
+    <fieldset>
+        <legend>Что включать в выгрузку</legend>
+        <label class="checkbox-label">
+            <input type="checkbox" id="include-url">
+            <span>Включать URL</span>
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="include-date">
+            <span>Включать дату</span>
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="include-title">
+            <span>Включать заголовок страницы</span>
+        </label>
+    </fieldset>
+    <br>
+
+    <p>Имя файла</p>
+    <input type="text" id="filename" placeholder="saved-notes">
+    <label class="checkbox-label">
+        <input type="checkbox" id="">
+        <span>Добавлять дату</span>
+    </label>
+
+</body>
+</html>
