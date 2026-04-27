@@ -27,3 +27,12 @@ document.addEventListener('DOMContentLoaded',function() {
         chrome.runtime.openOptionsPage();
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    let button = document.getElementById('open-sidepanel');
+    button.addEventListener('click', function() {
+        chrome.windows.getCurrent((window) => {
+            chrome.sidePanel.open({ windowId: window.id });
+        });
+    });
+});
