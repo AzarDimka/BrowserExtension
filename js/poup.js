@@ -36,3 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    let button = document.getElementById('clean-all');
+    button.addEventListener('click', function() {
+        chrome.storage.local.set({ savedTexts: [] });
+    });
+});
