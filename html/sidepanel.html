@@ -8,8 +8,26 @@
 </head>
 <body>
     <h1>Тест</h1>
-    <textarea id="text-area">
+    <div>
+        <div>
+            <label>Название заметки</label>
+        </div>
+        <input type="text">
+        <select>
+            <option>.md</option>
+            <option>.txt</option>
+        </select>
+        <button id="save-note">Сохранить</button>
+    </div>
+    <div class="toolbar">
+        <button data-format="bold">B</button>
+        <button data-format="italic">I</button>
+        <button data-format="list">.</button>
+    </div>
+    <div>
+        <textarea id="text-area">
+        </textarea>
+    </div>
 
-    </textarea>
 </body>
 </html>

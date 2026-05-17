@@ -22,3 +22,33 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
         loadTexts();
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    function insertMarkdown(before, after = '') {
+        let textarea = document.getElementById('text-area');
+        let start = textarea.selectionStart;
+        let end = textarea.selectionEnd;
+        let text = textarea.value;
+        
+        let selected = text.slice(start, end);
+        let replacement = before + selected + after;
+        
+        textarea.setRangeText(replacement, start, end, 'end');
+        textarea.focus();
+    }
+    
+    document.querySelectorAll('[data-format]').forEach(button => {
+        button.addEventListener('click', () => {
+            let format = button.getAttribute('data-format');
+            
+            if (format === 'bold') {
+                insertMarkdown('**', '**');
+            } else if (format === 'italic') {
+                insertMarkdown('*', '*');
+            } else if (format === 'list') {
+                // пока заглушка
+                console.log('list пока не работает');
+            }
+        });
+    });
+});
